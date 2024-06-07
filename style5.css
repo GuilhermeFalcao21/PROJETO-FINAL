@@ -1,0 +1,175 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #923838;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#search-container {
+    margin-bottom: 20px;
+}
+
+#search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70%;
+    max-width: 400px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#search-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#search-container button:hover {
+    background-color: #0056b3;
+}
+
+#game-info {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+#game-info h2 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+#game-info img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    margin-bottom: 10px;
+}
+
+#game-info p {
+    margin-bottom: 10px;
+    background-color: brown;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+}
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    position: relative; 
+}
+
+.logo img {
+    width: 100px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+#search-container {
+    display: flex;
+    align-items: center;
+    position: absolute; 
+    top: 0; 
+   
+}
+
+#search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    margin-right: 10px;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+#search-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#search-container button:hover {
+    background-color: #0056b3;
+}
+
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    #search-container {
+        position: static; 
+        margin-top: 10px; 
+    }
+
+    #search-input {
+        width: 100%;
+        margin-right: 0;
+    }
+}

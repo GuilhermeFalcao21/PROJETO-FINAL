@@ -1,0 +1,108 @@
+/* Reset básico para remover estilos padrões do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* Define uma fonte padrão para todo o site */
+}
+
+body {
+    background-color: #f4f4f4; /* Cor de fundo suave para todo o site */
+    color: #333; /* Cor de texto principal */
+    line-height: 1.6; /* Espaçamento da linha para melhor leitura */
+}
+
+/* Estilo para a barra de navegação */
+.navbar {
+    background-color: #da2222; /* Cor escura para destaque */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    width: 100px;
+}
+
+#MenuItems {
+    display: flex;
+    list-style: none;
+}
+
+#MenuItems li {
+    margin-left: 20px;
+}
+
+#MenuItems li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.menu-icon {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    #MenuItems {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    .navbar.active {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Estilo para o contêiner dos posts do Reddit */
+#reddit-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#reddit-posts div {
+    background-color: #fff;
+    border: 1px solid #ddd; /* Adiciona uma borda sutil */
+    border-radius: 8px;
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para efeito 3D */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave para hover */
+}
+
+#reddit-posts div:hover {
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#reddit-posts div h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#reddit-posts div p {
+    font-size: 16px;
+    color: #666; /* Cor mais suave para o texto */
+}
+
+#reddit-posts div a {
+    color: #007BFF; /* Cor azul para links */
+    font-weight: bold; /* Torna o texto do link em negrito */
+}
+
+#reddit-posts div a:hover {
+    text-decoration: underline; /* Sublinha o link ao passar o mouse */
+}

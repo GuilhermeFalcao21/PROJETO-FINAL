@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts do Reddit</title>
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+    <style ></style>
+    
+    <div class="navbar">
+        <div class="logo">
+             <a href="index.html"><img src="images/controle-de-video-game.png" width="100px"></a>
+        </div>
+        <nav >
+            <ul id="MenuItems">
+                <li><a href="index.html">Jogos Disponíveis</a></li>
+                <li><a href="Download.html">Download</a></li>
+                <li><a href="conta.php">Conta</a></li>
+                <li><a href="index2.html">Posts do Reddit</a></li>
+            </ul>
+        </nav>
+
+        
+        <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+  </div>
+
+    <div id="reddit-posts">
+        
+    </div>
+
+    <script>
+      
+        function loadRedditPosts(query) {
+            const gameId = 'fifa';
+            const APIKEY = '7b2f023a992e4f5cab14679b946968c2';
+            const url = `https://api.rawg.io/api/games/${gameId}/reddit?key=${APIKEY}`;
+
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const redditPostsDiv = document.getElementById('reddit-posts');
+                    redditPostsDiv.innerHTML = ''; 
+                   
+                    if (Array.isArray(data.results)) {
+                        data.results.forEach(post => {
+                            if (!query || post.name.toLowerCase().includes(query.toLowerCase())) {
+                                const postElement = document.createElement('div');
+                                postElement.innerHTML = `
+                                    <h3>${post.name}</h3>
+                                    <p>${post.text}</p>
+                                    <a href="${post.url}" target="_blank">Link para o post</a>
+                                `;
+                                redditPostsDiv.appendChild(postElement);
+                            }
+                        });
+                    } else {
+                        const errorMessage = document.createElement('p');
+                        errorMessage.textContent = 'Nenhum post encontrado.';
+                        redditPostsDiv.appendChild(errorMessage);
+                    }
+                })
+                .catch(error => {
+                    const errorMessage = document.createElement('p');
+                    errorMessage.textContent = 'Erro ao carregar os posts do Reddit.';
+                    document.getElementById('reddit-posts').appendChild(errorMessage);
+                    console.error('Erro ao carregar os posts do Reddit:', error);
+                });
+        }
+
+        loadRedditPosts('');
+
+        document.getElementById('search-button').addEventListener('click', function() {
+            const searchInputValue = document.getElementById('search-input').value;
+            loadRedditPosts(searchInputValue);
+        });
+
+        document.getElementById('search-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                const searchInputValue = document.getElementById('search-input').value;
+                loadRedditPosts(searchInputValue);
+            }
+        });
+    </script>
+    
+</body>
+</html>
